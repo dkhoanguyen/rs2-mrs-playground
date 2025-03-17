@@ -1,0 +1,13 @@
+world:
+  height: 10  # the height of the world
+  width: 10  # the height of the world
+  step_time: 0.1  # 10Hz calculate each step
+  sample_time: 0.1  # 10 Hz for render and data extraction 
+  offset: [0, 0] # the offset of the world on x and y 
+
+robot:
+  kinematics: 
+    name: 'diff'  # kinematics of the robot, current name should be one of omni, diff, acker. If not set, this object will be static
+  shape: {name: 'circle', radius: 0.2}  # radius for circle shape
+  state: [1, 1, 1.57]  # x, y, theta, 2d position and orientation
+  color: 'g' # green
