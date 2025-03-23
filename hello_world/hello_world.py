@@ -10,9 +10,10 @@ def main():
     
     #
     for i in range(300):  # run the simulation for 300 steps
-        robot: irsim.world.ObjectBase
-        for robot in env.robot_list:
-            robot.step(np.array([1,1]).reshape((2,1)))
+        # robot: irsim.world.ObjectBase
+        # for robot in env.robot_list:
+        #     robot.step()
+        env.step()
         env.render()  # render the environment
         if env.done():
             break  # check if the simulation is done

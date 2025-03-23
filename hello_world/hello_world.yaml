@@ -8,6 +8,8 @@ world:
 robot:
   kinematics: 
     name: 'diff'  # kinematics of the robot, current name should be one of omni, diff, acker. If not set, this object will be static
+  goal:
+    - [[9, 9, 0], [1, 9, 1]]
   shape: {name: 'circle', radius: 0.2}  # radius for circle shape
   state: [1, 1, 1.57]  # x, y, theta, 2d position and orientation
   color: 'g' # green
