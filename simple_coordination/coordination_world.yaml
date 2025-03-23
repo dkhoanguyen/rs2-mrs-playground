@@ -1,0 +1,27 @@
+world:
+  height: 10 # the height of the world
+  width: 10 # the height of the world
+  step_time: 0.1 # 10Hz calculate each step
+  sample_time: 0.1 # 10 Hz for render and data extraction
+  offset: [0, 0] # the offset of the world on x and y
+
+robot:
+  - number: 2
+    distribution: { name: "manual" }
+    kinematics: { name: "diff" }
+    shape:
+      - { name: "circle", radius: 0.1 } # radius
+    unobstructed: True
+    state:
+      - [1, 1, 0]
+      - [1, 1, 0]
+      - [0, 0, 0]
+    goal:
+      - [9, 9, 0]
+      - [9, 1, 0]
+      - [0, 0, 0]
+    color:
+      - "royalblue"
+      - "red"
+    plot:
+      arrow_width: 0.3

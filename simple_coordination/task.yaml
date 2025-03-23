@@ -1,0 +1,8 @@
+tasks:
+  - id: "A"
+    location: [9, 9, 0]
+    time: 0.0
+
+  - id: "B"
+    location: [9, 1, 0]
+    time: 0.0

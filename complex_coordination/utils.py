@@ -1,6 +1,17 @@
 import numpy as np
 from typing import Any
+import yaml
 
+# Read YAML file and extract data
+def load_yaml_data(file_path):
+    with open(file_path, "r") as file:
+        data = yaml.safe_load(file)
+    
+    task_id = [task["id"] for task in data["tasks"]]
+    task_location = np.array([task["location"] for task in data["tasks"]])
+    task_times = np.array([task["time"] for task in data["tasks"]])
+    
+    return task_id, task_location, task_times
 
 def compute_travel_time(pos1, pos2, velocity=1.0):
     """Computes travel time based on Euclidean distance and velocity."""

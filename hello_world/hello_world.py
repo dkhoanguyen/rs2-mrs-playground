@@ -1,6 +1,6 @@
 import irsim  # initialize the environment with the configuration file
 import matplotlib.pyplot as plt
-
+import numpy as np
 import irsim.world.robots
 
 def main():
@@ -12,7 +12,7 @@ def main():
     for i in range(300):  # run the simulation for 300 steps
         robot: irsim.world.ObjectBase
         for robot in env.robot_list:
-            robot.step()
+            robot.step(np.array([1,1]).reshape((2,1)))
         env.render()  # render the environment
         if env.done():
             break  # check if the simulation is done

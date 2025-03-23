@@ -2,34 +2,29 @@ import irsim  # initialize the environment with the configuration file
 import irsim.world
 import matplotlib.pyplot as plt
 import numpy as np
-# Import the Hungarian algorithm solver
-import algorithm
 from utils import *
+# Import the Hungarian algorithm solver
 from hungarian import Hungarian
 
 
 def main():
     # Simple setup
     env = irsim.make('coordination_world.yaml')
-    plt.gcf().set_size_inches(12, 6)
+    plt.gcf().set_size_inches(7, 7)
+    env.render()
+    env.end(ending_time=10)
+
+    env = irsim.make('coordination_world.yaml')
+    plt.gcf().set_size_inches(7, 7)
 
     # Define tasks (goal location)
     # Suppose we have 2 robots and 2 tasks to do
-    task_id = ["A", "B"]
-    task_location = np.array(
-        [[9, 1, 0],
-         [9, 9, 0]]
-    )
-    print(task_location)
-    print(task_location.shape)
-    task_times = np.array([
-        0.0,  # The first task
-        0.0
-    ])
+    task_id, task_location, task_times = load_yaml_data("task.yaml")
 
+    # What if robots have different speed
     robot_velocity = np.array([
-        0.5,
-        1.5
+        0.5, # Robot 0 - move slower
+        1.5  # Robot 1 - move faster
     ])
 
     robot_id = []
@@ -50,13 +45,13 @@ def main():
     solver = Hungarian(is_profit_matrix=False)
     solver.calculate(task_matrix)
     assignment_matrix = solver.get_results()
-    print(assignment_matrix)
+
+    # Assign task to robots
     for assignment in assignment_matrix:
         robot_id = assignment[0]
         task_id = assignment[1]
         for robot in env.robot_list:
             if robot.id == robot_id:
-                print(task_location[task_id, :])
                 robot.set_goal(task_location[task_id, :].reshape((3,1)))
 
     for i in range(300):  # run the simulation for 300 steps
@@ -66,6 +61,12 @@ def main():
         env.render()  # render the environment
         if env.done():
             break  # check if the simulation is done
+        # Plot the iteration number in the lower-right corner
+        plt.text(0.975, 0.025, f"Step: {i}", fontsize=12, color='black',
+                transform=plt.gca().transAxes, ha='right', va='bottom',
+                bbox=dict(facecolor='white', alpha=0.6, edgecolor='black'))
+
+    print(f"Total steps: {i}")
     env.end()  # close the environment
 
 
