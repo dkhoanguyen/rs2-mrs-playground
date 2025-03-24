@@ -434,48 +434,48 @@ class CoverZeros:
         return row_indices[0], column_index[0]
 
 
-if __name__ == '__main__':
-    profit_matrix = [
-        [62, 75, 80, 93, 95, 97],
-        [75, 80, 82, 85, 71, 97],
-        [80, 75, 81, 98, 90, 97],
-        [78, 82, 84, 80, 50, 98],
-        [90, 85, 85, 80, 85, 99],
-        [65, 75, 80, 75, 68, 96]]
+# if __name__ == '__main__':
+#     profit_matrix = [
+#         [62, 75, 80, 93, 95, 97],
+#         [75, 80, 82, 85, 71, 97],
+#         [80, 75, 81, 98, 90, 97],
+#         [78, 82, 84, 80, 50, 98],
+#         [90, 85, 85, 80, 85, 99],
+#         [65, 75, 80, 75, 68, 96]]
 
-    hungarian = Hungarian(profit_matrix, is_profit_matrix=False)
-    hungarian.calculate()
-    print("Expected value:\t\t543")
-    print("Calculated value:\t", hungarian.get_total_potential())  # = 543
-    print("Expected results:\n\t[(0, 4), (2, 3), (5, 5), (4, 0), (1, 1), (3, 2)]")
-    print("Results:\n\t", hungarian.get_results())
-    print("-" * 80)
-    # print(profit_matrix[0][4] + profit_matrix[2][3] + profit_matrix[5][5] + profit_matrix[4][0] + profit_matrix[1][1] + profit_matrix[3][2])
+#     hungarian = Hungarian(profit_matrix, is_profit_matrix=False)
+#     hungarian.calculate()
+#     print("Expected value:\t\t543")
+#     print("Calculated value:\t", hungarian.get_total_potential())  # = 543
+#     print("Expected results:\n\t[(0, 4), (2, 3), (5, 5), (4, 0), (1, 1), (3, 2)]")
+#     print("Results:\n\t", hungarian.get_results())
+#     print("-" * 80)
+#     # print(profit_matrix[0][4] + profit_matrix[2][3] + profit_matrix[5][5] + profit_matrix[4][0] + profit_matrix[1][1] + profit_matrix[3][2])
 
-    # cost_matrix = [
-    #     [4, 2, 8],
-    #     [4, 3, 7],
-    #     [3, 1, 6]]
-    # hungarian = Hungarian(cost_matrix)
-    # print('calculating...')
-    # hungarian.calculate()
-    # print("Expected value:\t\t12")
-    # print("Calculated value:\t", hungarian.get_total_potential())  # = 12
-    # print("Expected results:\n\t[(0, 1), (1, 0), (2, 2)]")
-    # print("Results:\n\t", hungarian.get_results())
-    # print("-" * 80)
+#     # cost_matrix = [
+#     #     [4, 2, 8],
+#     #     [4, 3, 7],
+#     #     [3, 1, 6]]
+#     # hungarian = Hungarian(cost_matrix)
+#     # print('calculating...')
+#     # hungarian.calculate()
+#     # print("Expected value:\t\t12")
+#     # print("Calculated value:\t", hungarian.get_total_potential())  # = 12
+#     # print("Expected results:\n\t[(0, 1), (1, 0), (2, 2)]")
+#     # print("Results:\n\t", hungarian.get_results())
+#     # print("-" * 80)
 
-    # profit_matrix = [
-    #     [62, 75, 80, 93, 0, 97],
-    #     [75, 0, 82, 85, 71, 97],
-    #     [80, 75, 81, 0, 90, 97],
-    #     [78, 82, 0, 80, 50, 98],
-    #     [0, 85, 85, 80, 85, 99],
-    #     [65, 75, 80, 75, 68, 0]]
-    # hungarian = Hungarian()
-    # hungarian.calculate(profit_matrix, is_profit_matrix=True)
-    # print("Expected value:\t\t523")
-    # print("Calculated value:\t", hungarian.get_total_potential())  # = 523
-    # print("Expected results:\n\t[(0, 3), (2, 4), (3, 0), (5, 2), (1, 5), (4, 1)]")
-    # print("Results:\n\t", hungarian.get_results())
-    # print("-" * 80)
+#     # profit_matrix = [
+#     #     [62, 75, 80, 93, 0, 97],
+#     #     [75, 0, 82, 85, 71, 97],
+#     #     [80, 75, 81, 0, 90, 97],
+#     #     [78, 82, 0, 80, 50, 98],
+#     #     [0, 85, 85, 80, 85, 99],
+#     #     [65, 75, 80, 75, 68, 0]]
+#     # hungarian = Hungarian()
+#     # hungarian.calculate(profit_matrix, is_profit_matrix=True)
+#     # print("Expected value:\t\t523")
+#     # print("Calculated value:\t", hungarian.get_total_potential())  # = 523
+#     # print("Expected results:\n\t[(0, 3), (2, 4), (3, 0), (5, 2), (1, 5), (4, 1)]")
+#     # print("Results:\n\t", hungarian.get_results())
+#     # print("-" * 80)
